@@ -1,0 +1,67 @@
+:root {
+  --form-padding: 5px;
+  --form-margin: 5px;
+  --license-border-width: 1px;
+  --license-border: var(--license-border-width) solid black;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: auto 300px auto;
+  grid-template-rows: 1fr auto 1fr;
+  grid-template-areas: ". . ."
+    ". license ."
+    ". . .";
+}
+
+.license-form {
+  grid-area: license;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.license-form > * {
+  padding: var(--form-padding);
+  margin: var(--form-margin);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.license--country {
+  width: calc(30% - var(--form-margin) - (2 * var(--form-padding)) - (2 * var(--license-border-width)));
+  border-radius: 5px 0 0 5px;
+  border-left: var(--license-border);
+  border-bottom: var(--license-border);
+  border-top: var(--license-border);
+  margin-right: 0;
+  background-color: blue;
+}
+
+.license--number {
+  width: calc(70% - var(--form-margin) - (2 * var(--form-padding)) - (2 * var(--license-border-width)));
+  border-radius: 0 5px 5px 0;
+  border-right: var(--license-border);
+  border-bottom: var(--license-border);
+  border-top: var(--license-border);
+  margin-left: 0;
+  background-color: yellow;
+}
+
+.license--number > input {
+  background-color: yellow;
+  border: none;
+}
+
+.license-form input[name="like_driver"],
+.license-form input[name="dislike_driver"]  {
+  width: calc(50% - 2 * var(--form-padding));
+}
