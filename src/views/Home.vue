@@ -1,18 +1,34 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <license-form />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import LicenseForm from "@/components/LicenseForm.vue";
 
 export default {
   name: "home",
   components: {
-    HelloWorld
+    LicenseForm
   }
 };
 </script>
+
+<style lang="scss">
+.home {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto 800px auto;
+  grid-template-rows: 1fr auto 1fr;
+  grid-template-areas:
+    ". . ."
+    ". license ."
+    ". . .";
+}
+
+.home > * {
+  grid-area: license;
+}
+</style>
